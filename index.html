@@ -170,34 +170,68 @@
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 140px 0 80px;
+            align-items: center;
             position: relative;
+            padding-top: 80px;
         }
 
-        .hero-badge {
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
+            opacity: 0.4;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            background: var(--accent-dim);
-            border: 1px solid var(--accent);
+            padding: 6px 16px;
+            border: 1px solid var(--border);
             border-radius: 100px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--accent);
+            font-size: 13px;
+            color: var(--text-secondary);
             margin-bottom: 32px;
-            width: fit-content;
+            font-family: var(--mono);
+            font-weight: 300;
+        }
+
+        .hero-tag .pulse {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease infinite;
         }
 
         .hero h1 {
             font-family: var(--serif);
-            font-size: clamp(48px, 8vw, 88px);
+            font-size: clamp(48px, 7vw, 88px);
             font-weight: 400;
             line-height: 1.05;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
         }
 
         .hero h1 em {
@@ -205,18 +239,47 @@
             color: var(--accent);
         }
 
-        .hero-subtitle {
-            font-size: 20px;
+        .hero-sub {
+            font-size: 18px;
+            line-height: 1.7;
             color: var(--text-secondary);
             max-width: 560px;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            margin: 0 auto 44px;
+            font-weight: 300;
         }
 
-        .hero-cta {
+        .hero-ctas {
             display: flex;
             gap: 16px;
+            justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 48px;
+            justify-content: center;
+            margin-top: 72px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-metric {
+            text-align: center;
+        }
+
+        .hero-metric .number {
+            font-family: var(--mono);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+
+        .hero-metric .label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
         }
 
         /* ── Features ── */
@@ -286,37 +349,6 @@
             line-height: 1.6;
         }
 
-        /* ── Stats ── */
-        .stats {
-            padding: 80px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .stat-item h4 {
-            font-family: var(--mono);
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .stat-item p {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         /* ── CTA Section ── */
         .cta {
             padding: 120px 0;
@@ -379,11 +411,16 @@
                 padding: 120px 0 60px;
             }
 
+            .hero-metrics {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-cta {
+            .hero-ctas {
                 flex-direction: column;
             }
 
@@ -413,39 +450,33 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow"></div>
         <div class="container">
-            <div class="hero-badge fade-in">
-                <span>✦</span>
-                Now in public beta
-            </div>
-            <h1 class="fade-in">Operational intelligence for <em>growing teams</em></h1>
-            <p class="hero-subtitle fade-in">Toggle connects your tools, surfaces what matters, and helps your team move faster — without the noise.</p>
-            <div class="hero-cta fade-in">
-                <a href="#" class="btn-primary">Start free trial</a>
-                <a href="#" class="btn-secondary">View demo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item fade-in">
-                    <h4>10x</h4>
-                    <p>Faster decisions</p>
+            <div class="hero-content">
+                <div class="hero-tag fade-in">
+                    <span class="pulse"></span>
+                    Now in public beta
                 </div>
-                <div class="stat-item fade-in">
-                    <h4>40%</h4>
-                    <p>Less context switching</p>
+                <h1 class="fade-in">Operational intelligence for <em>growing teams</em></h1>
+                <p class="hero-sub fade-in">Toggle connects your tools, surfaces what matters, and helps your team move faster — without the noise.</p>
+                <div class="hero-ctas fade-in">
+                    <a href="#" class="btn-primary">Start free trial</a>
+                    <a href="#" class="btn-secondary">View demo</a>
                 </div>
-                <div class="stat-item fade-in">
-                    <h4>500+</h4>
-                    <p>Teams onboarded</p>
-                </div>
-                <div class="stat-item fade-in">
-                    <h4>99.9%</h4>
-                    <p>Uptime guaranteed</p>
+                <div class="hero-metrics fade-in">
+                    <div class="hero-metric">
+                        <div class="number">10x</div>
+                        <div class="label">Faster decisions</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="number">40%</div>
+                        <div class="label">Less switching</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="number">500+</div>
+                        <div class="label">Teams onboarded</div>
+                    </div>
                 </div>
             </div>
         </div>
