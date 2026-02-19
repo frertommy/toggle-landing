@@ -652,26 +652,193 @@
             color: var(--text-muted);
         }
 
-        /* ── CTA Section ── */
-        .cta {
+        /* ── Pricing ── */
+        .pricing {
             padding: 120px 0;
-            border-top: 1px solid var(--border);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .pricing-header .section-desc {
+            margin: 20px auto 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .pricing-card {
+            background: var(--bg);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            background: var(--bg-elevated);
+        }
+
+        .pricing-card.featured {
+            background: var(--bg-elevated);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-tier {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .pricing-name {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .pricing-price {
+            font-family: var(--mono);
+            font-size: 40px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            flex: 1;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .pricing-cta {
+            margin-top: auto;
+        }
+
+        .pricing-cta a {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: var(--sans);
+        }
+
+        .pricing-cta .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .pricing-cta .btn-outline:hover {
+            border-color: var(--text-muted);
+            background: var(--bg-card);
+        }
+
+        .pricing-cta .btn-fill {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .pricing-cta .btn-fill:hover {
+            box-shadow: 0 0 30px var(--accent-dim);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* ── CTA Section ── */
+        .final-cta {
+            padding: 160px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .final-cta .section-title {
+            margin-bottom: 24px;
+        }
+
+        .final-cta .section-desc {
+            margin: 0 auto 44px;
             text-align: center;
         }
 
-        .cta h2 {
-            font-family: var(--serif);
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 480px;
-            margin: 0 auto 40px;
+        .final-cta .hero-ctas {
+            margin-bottom: 0;
         }
 
         /* ── Footer ── */
@@ -705,6 +872,12 @@
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -742,6 +915,10 @@
             }
 
             .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1024,14 +1201,96 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
+    <!-- Pricing -->
+    <section class="pricing">
         <div class="container">
-            <h2 class="fade-in">Ready to <em>toggle</em> into focus?</h2>
-            <p class="fade-in">Join hundreds of teams who've already made the switch. Free for 14 days, no credit card required.</p>
-            <div class="hero-cta fade-in" style="justify-content: center;">
-                <a href="#" class="btn-primary">Get started free</a>
-                <a href="#" class="btn-secondary">Talk to sales</a>
+            <div class="pricing-header fade-in">
+                <div class="section-label">Pricing</div>
+                <h2 class="section-title">Simple, <em>transparent</em> pricing</h2>
+                <p class="section-desc">Start free, scale as you grow. No hidden fees, no surprises.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-tier">Free</div>
+                    <div class="pricing-name">Starter</div>
+                    <div class="pricing-price">$0<span>/mo</span></div>
+                    <div class="pricing-period">Forever free</div>
+                    <ul class="pricing-features">
+                        <li>Up to 3 team members</li>
+                        <li>5 integrations</li>
+                        <li>Basic analytics</li>
+                        <li>7-day data history</li>
+                        <li>Email support</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="#" class="btn-outline">Get started</a>
+                    </div>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="pricing-tier">Pro</div>
+                    <div class="pricing-name">Growth</div>
+                    <div class="pricing-price">$12<span>/mo</span></div>
+                    <div class="pricing-period">per user, billed monthly</div>
+                    <ul class="pricing-features">
+                        <li>Up to 25 team members</li>
+                        <li>Unlimited integrations</li>
+                        <li>Advanced analytics</li>
+                        <li>90-day data history</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="#" class="btn-outline">Start trial</a>
+                    </div>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <div class="pricing-tier">Business</div>
+                    <div class="pricing-name">Scale</div>
+                    <div class="pricing-price">$29<span>/mo</span></div>
+                    <div class="pricing-period">per user, billed monthly</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited team members</li>
+                        <li>Unlimited integrations</li>
+                        <li>AI-powered insights</li>
+                        <li>Unlimited data history</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="#" class="btn-fill">Start trial</a>
+                    </div>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-name">Custom</div>
+                    <div class="pricing-price">—</span></div>
+                    <div class="pricing-period">Contact us</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Scale</li>
+                        <li>Custom integrations</li>
+                        <li>SSO &amp; advanced security</li>
+                        <li>SLA guarantee</li>
+                        <li>Dedicated success manager</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="#" class="btn-outline">Contact sales</a>
+                    </div>
+                </div>
+            </div>
+            <p class="pricing-note fade-in">All plans include a 14-day free trial. No credit card required.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="final-cta">
+        <div class="final-cta-glow"></div>
+        <div class="container">
+            <div class="fade-in">
+                <div class="section-label">Get Started</div>
+                <h2 class="section-title">Ready to <em>toggle</em> into focus?</h2>
+                <p class="section-desc">Join hundreds of teams who've already made the switch. Free for 14 days, no credit card required.</p>
+                <div class="hero-ctas">
+                    <a href="#" class="btn-primary">Get started free</a>
+                    <a href="#" class="btn-secondary">Talk to sales</a>
+                </div>
             </div>
         </div>
     </section>
