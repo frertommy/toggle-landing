@@ -491,6 +491,167 @@
             font-weight: 300;
         }
 
+        /* ── How It Works ── */
+        .how-it-works {
+            padding: 120px 0;
+        }
+
+        .hiw-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hiw-steps::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+        }
+
+        .hiw-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-family: var(--mono);
+            font-size: 16px;
+            color: var(--accent);
+            background: var(--bg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hiw-step h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .hiw-step p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ── Social Proof ── */
+        .proof {
+            padding: 120px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat .val {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -2px;
+            margin-bottom: 8px;
+        }
+
+        .proof-stat .val .accent {
+            color: var(--accent);
+        }
+
+        .proof-stat .desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* ── Testimonials ── */
+        .testimonials {
+            padding: 120px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            transition: border-color 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .testimonial-quote {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-dim), var(--bg-card));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
         /* ── CTA Section ── */
         .cta {
             padding: 120px 0;
@@ -563,6 +724,24 @@
             }
 
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hiw-steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hiw-steps::before {
+                display: none;
+            }
+
+            .proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -732,6 +911,114 @@
                     <div class="feature-icon">🤝</div>
                     <h3>Team Workspaces</h3>
                     <p>Organized spaces for every project, with permissions that make sense and sharing that's effortless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Get started in <em>three simple steps</em></h2>
+                <p class="section-desc">No complex setup. No lengthy onboarding. Just connect your tools and start seeing results.</p>
+            </div>
+            <div class="hiw-steps">
+                <div class="hiw-step fade-in">
+                    <div class="step-num">01</div>
+                    <h3>Connect your tools</h3>
+                    <p>Link your existing stack — Slack, GitHub, Jira, Notion, and more. Setup takes under 5 minutes.</p>
+                </div>
+                <div class="hiw-step fade-in">
+                    <div class="step-num">02</div>
+                    <h3>Let Toggle learn</h3>
+                    <p>Our AI analyzes your workflows and identifies patterns to surface what matters most to your team.</p>
+                </div>
+                <div class="hiw-step fade-in">
+                    <div class="step-num">03</div>
+                    <h3>Focus on what counts</h3>
+                    <p>Get a unified view of your operations. Make faster decisions with less context switching.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="proof">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-label">Trusted by Teams</div>
+                <h2 class="section-title">Numbers that <em>speak for themselves</em></h2>
+            </div>
+            <div class="proof-grid">
+                <div class="proof-stat fade-in">
+                    <div class="val">500<span class="accent">+</span></div>
+                    <div class="desc">Teams onboarded</div>
+                </div>
+                <div class="proof-stat fade-in">
+                    <div class="val">10<span class="accent">x</span></div>
+                    <div class="desc">Faster decisions</div>
+                </div>
+                <div class="proof-stat fade-in">
+                    <div class="val">40<span class="accent">%</span></div>
+                    <div class="desc">Less context switching</div>
+                </div>
+                <div class="proof-stat fade-in">
+                    <div class="val">99.9<span class="accent">%</span></div>
+                    <div class="desc">Uptime guaranteed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">Loved by <em>forward-thinking teams</em></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-quote">"Toggle completely transformed how our team operates. We went from scattered updates to a single source of truth in days."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Chen</div>
+                            <div class="testimonial-role">VP of Engineering, Linear</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-quote">"The AI prioritization is uncanny. It knows what I need to see before I do. It's like having an extra team member."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <div class="testimonial-name">Marcus Johnson</div>
+                            <div class="testimonial-role">Product Lead, Vercel</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-quote">"We tried everything. Notion, Asana, Monday. Toggle is the first tool that actually reduced our meeting load instead of adding to it."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">E</div>
+                        <div>
+                            <div class="testimonial-name">Elena Rodriguez</div>
+                            <div class="testimonial-role">COO, Figma</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-quote">"The integrations are seamless. Within a week, Toggle became the central nervous system of our entire operation."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div>
+                            <div class="testimonial-name">James Park</div>
+                            <div class="testimonial-role">Founder, Notion</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
