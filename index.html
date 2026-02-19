@@ -843,32 +843,183 @@
 
         /* ── Footer ── */
         footer {
-            padding: 40px 0;
             border-top: 1px solid var(--border);
+            padding: 60px 0 40px;
         }
 
-        footer .container {
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .nav-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 280px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .footer-cols {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .footer-col a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
         }
 
-        footer p {
-            font-size: 14px;
+        .footer-bottom p {
+            font-size: 13px;
             color: var(--text-muted);
+            font-weight: 300;
         }
 
-        footer a {
-            color: var(--text-secondary);
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            font-size: 13px;
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
             transition: color 0.3s;
         }
 
-        footer a:hover {
-            color: var(--text);
+        .footer-bottom-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ── Live ticker ── */
+        .ticker-bar {
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 48px;
+            animation: ticker-scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .ticker-item {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ticker-item .val {
+            color: var(--accent);
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── Phase roadmap ── */
+        .roadmap {
+            padding: 120px 0;
+        }
+
+        .roadmap-track {
+            display: flex;
+            gap: 0;
+            margin-top: 64px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .roadmap-phase {
+            flex: 1;
+            padding: 36px 28px;
+            border-right: 1px solid var(--border);
+            transition: background 0.3s;
+            position: relative;
+        }
+
+        .roadmap-phase:last-child {
+            border-right: none;
+        }
+
+        .roadmap-phase:hover {
+            background: var(--bg-elevated);
+        }
+
+        .roadmap-phase.active {
+            background: var(--bg-elevated);
+        }
+
+        .roadmap-phase.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .phase-num {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .phase-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .phase-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-weight: 300;
         }
 
         /* ── Responsive ── */
@@ -876,15 +1027,24 @@
             .pricing-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .roadmap-track {
+                flex-direction: column;
             }
 
-            .hero {
-                padding: 120px 0 60px;
+            .roadmap-phase {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .roadmap-phase:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
             }
 
             .hero-metrics {
@@ -922,6 +1082,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .footer-top {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-cols {
+                gap: 40px;
+                flex-wrap: wrap;
+            }
+
             .hero-ctas {
                 flex-direction: column;
             }
@@ -949,6 +1119,22 @@
             </div>
         </div>
     </nav>
+
+    </ticker-bar>
+    <div class="ticker-bar">
+        <div class="ticker-track">
+            <div class="ticker-item"><span class="val">↑ 12%</span> Active tasks this week</div>
+            <div class="ticker-item"><span class="val">2,847</span> Teams using Toggle</div>
+            <div class="ticker-item"><span class="val">99.9%</span> Uptime this month</div>
+            <div class="ticker-item"><span class="val">↓ 40%</span> Less meeting time</div>
+            <div class="ticker-item"><span class="val">50+</span> Integrations</div>
+            <div class="ticker-item"><span class="val">↑ 12%</span> Active tasks this week</div>
+            <div class="ticker-item"><span class="val">2,847</span> Teams using Toggle</div>
+            <div class="ticker-item"><span class="val">99.9%</span> Uptime this month</div>
+            <div class="ticker-item"><span class="val">↓ 40%</span> Less meeting time</div>
+            <div class="ticker-item"><span class="val">50+</span> Integrations</div>
+        </div>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
@@ -1201,6 +1387,39 @@
         </div>
     </section>
 
+    <!-- Roadmap -->
+    <section class="roadmap">
+        <div class="container">
+            <div class="features-header fade-in">
+                <div class="section-label">Roadmap</div>
+                <h2 class="section-title">What's <em>coming next</em></h2>
+                <p class="section-desc">Our journey to make team operations effortless. Here's where we are and where we're headed.</p>
+            </div>
+            <div class="roadmap-track">
+                <div class="roadmap-phase active fade-in">
+                    <div class="phase-num">Phase 01</div>
+                    <div class="phase-title">Foundation</div>
+                    <div class="phase-desc">Core platform with 50+ integrations, real-time sync, and basic analytics. ✓ Live now</div>
+                </div>
+                <div class="roadmap-phase active fade-in">
+                    <div class="phase-num">Phase 02</div>
+                    <div class="phase-title">Intelligence</div>
+                    <div class="phase-desc">AI-powered insights, smart prioritization, and predictive analytics. ✓ In beta</div>
+                </div>
+                <div class="roadmap-phase fade-in">
+                    <div class="phase-num">Phase 03</div>
+                    <div class="phase-title">Automation</div>
+                    <div class="phase-desc">Workflow automation, custom triggers, and autonomous task management. Coming Q2 2026</div>
+                </div>
+                <div class="roadmap-phase fade-in">
+                    <div class="phase-num">Phase 04</div>
+                    <div class="phase-title">Ecosystem</div>
+                    <div class="phase-desc">Developer API, custom apps, and marketplace for team workflows. Coming Q4 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing -->
     <section class="pricing">
         <div class="container">
@@ -1298,11 +1517,53 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2026 Toggle. All rights reserved.</p>
-            <div style="display: flex; gap: 24px;">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Twitter</a>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <span class="dot"></span>
+                        Toggle
+                    </div>
+                    <p>Operational intelligence for growing teams. Connect your tools, surface what matters, move faster.</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#">Features</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Integrations</a>
+                        <a href="#">Changelog</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a href="#">Documentation</a>
+                        <a href="#">Help Center</a>
+                        <a href="#">Community</a>
+                        <a href="#">Status</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Security</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Toggle. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Discord</a>
+                    <a href="#">LinkedIn</a>
+                </div>
             </div>
         </div>
     </footer>
