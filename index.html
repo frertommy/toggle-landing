@@ -282,71 +282,213 @@
             margin-top: 6px;
         }
 
-        /* ── Features ── */
+        /* ── Dashboard Preview ── */
+        .dashboard-section {
+            padding: 40px 0 120px;
+            position: relative;
+        }
+
+        .dashboard-preview {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .dash-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dash-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dash-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-hover);
+        }
+
+        .dash-dots span:first-child { background: #ff5f57; }
+        .dash-dots span:nth-child(2) { background: #ffbd2e; }
+        .dash-dots span:nth-child(3) { background: #28c840; }
+
+        .dash-breadcrumb {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-weight: 300;
+        }
+
+        .dash-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .dash-card {
+            background: var(--bg-elevated);
+            padding: 28px;
+        }
+
+        .dash-card-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .dash-card-value {
+            font-family: var(--mono);
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .dash-card-sub {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .dash-card-sub .up { color: var(--accent); }
+        .dash-card-sub .down { color: var(--warm); }
+
+        .dash-wide {
+            grid-column: 1 / -1;
+            background: var(--bg-elevated);
+            padding: 28px;
+        }
+
+        .bars-container {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            height: 120px;
+            margin-top: 16px;
+        }
+
+        .bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bar {
+            width: 100%;
+            background: var(--accent);
+            border-radius: 4px 4px 0 0;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .bar:hover { opacity: 1; }
+        .bar.secondary { background: var(--text-muted); opacity: 0.3; }
+
+        .bar-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: var(--mono);
+        }
+
+        /* ── Features Section ── */
         .features {
             padding: 120px 0;
-            border-top: 1px solid var(--border);
+            position: relative;
         }
 
-        .section-header {
-            margin-bottom: 64px;
-        }
-
-        .section-header h2 {
-            font-family: var(--serif);
-            font-size: clamp(36px, 5vw, 56px);
+        .section-label {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
             font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
         }
 
-        .section-header p {
-            font-size: 18px;
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 4.5vw, 56px);
+            font-weight: 400;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            line-height: 1.7;
             color: var(--text-secondary);
-            max-width: 480px;
+            max-width: 520px;
+            font-weight: 300;
+        }
+
+        .features-header {
+            margin-bottom: 80px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
+            background: var(--bg);
+            padding: 44px 36px;
+            transition: background 0.4s;
+            position: relative;
         }
 
         .feature-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
+            background: var(--bg-elevated);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-dim);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-size: 20px;
+            color: var(--accent);
+            background: var(--bg-card);
         }
 
         .feature-card h3 {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 17px;
+            font-weight: 500;
             margin-bottom: 12px;
+            letter-spacing: -0.3px;
         }
 
         .feature-card p {
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.7;
             color: var(--text-secondary);
-            line-height: 1.6;
+            font-weight: 300;
         }
 
         /* ── CTA Section ── */
@@ -416,6 +558,10 @@
                 flex-wrap: wrap;
             }
 
+            .dash-body {
+                grid-template-columns: 1fr;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -482,12 +628,79 @@
         </div>
     </section>
 
+    <!-- Dashboard Preview -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-preview fade-in">
+                <div class="dash-topbar">
+                    <div class="dash-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="dash-breadcrumb">Dashboard / Overview</div>
+                </div>
+                <div class="dash-body">
+                    <div class="dash-card">
+                        <div class="dash-card-label">Active Tasks</div>
+                        <div class="dash-card-value">247</div>
+                        <div class="dash-card-sub"><span class="up">+12%</span> vs last week</div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-label">Team Velocity</div>
+                        <div class="dash-card-value">94%</div>
+                        <div class="dash-card-sub"><span class="up">+5%</span> on target</div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-label">Time Saved</div>
+                        <div class="dash-card-value">38h</div>
+                        <div class="dash-card-sub"><span class="up">+8h</span> this month</div>
+                    </div>
+                    <div class="dash-wide">
+                        <div class="dash-card-label">Weekly Activity</div>
+                        <div class="bars-container">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar-label">Mon</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 85%"></div>
+                                <div class="bar-label">Tue</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 45%"></div>
+                                <div class="bar-label">Wed</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 92%"></div>
+                                <div class="bar-label">Thu</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar-label">Fri</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar secondary" style="height: 30%"></div>
+                                <div class="bar-label">Sat</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar secondary" style="height: 20%"></div>
+                                <div class="bar-label">Sun</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Everything you need, <em>nothing you don't</em></h2>
-                <p>Built for teams who value clarity over clutter. Every feature designed with intention.</p>
+            <div class="features-header fade-in">
+                <div class="section-label">Features</div>
+                <h2 class="section-title">Everything you need, <em>nothing you don't</em></h2>
+                <p class="section-desc">Built for teams who value clarity over clutter. Every feature designed with intention.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card fade-in">
